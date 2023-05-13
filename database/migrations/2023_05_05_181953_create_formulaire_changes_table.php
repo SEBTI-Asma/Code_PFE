@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFormulairesChangesTable extends Migration
+class CreateFormulaireChangesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -23,7 +23,6 @@ class CreateFormulairesChangesTable extends Migration
             $table->dateTime('date_application');
             $table->string('raison_changement');
             $table->string('modifications_techniques');
-            // à revoir
             $table->timestamps();
         });
     }

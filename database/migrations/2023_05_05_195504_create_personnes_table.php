@@ -18,13 +18,12 @@ class CreatePersonnesTable extends Migration
             $table->string('nom');
             $table->string('prenom');
             $table->integer('telephone');
-            $table->string('departement');
-            $table->string('sous_departement');
+            $table->foreignId('departement_id');
+            $table->foreignId('sous_departement_id');
             $table->integer('role')->default(0);
             $table->integer('droit')->default(0);
             $table->integer('active')->default(0);
             $table->string('photo');
-            $table->timestamp('email_verified_at')->nullable();
             $table->timestamps();
         });
     }

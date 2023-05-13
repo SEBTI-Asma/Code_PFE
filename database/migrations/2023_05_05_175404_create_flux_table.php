@@ -21,15 +21,15 @@ class CreateFluxTable extends Migration
             $table->string('destination');
             /*table adresse destination*/ // 1flux ==> 1 ou plusieurs adresse destination
             $table->foreignId('adresses_destinations_id');
-            $table->string('port');
-            $table->string('type_flux');
-            $table->string('regle_demande');
-            $table->boolean('change_demande');
-            $table->string('categorie_change');
+            $table->integer('port');
+            $table->string('type_flux'); // permanent temporaire
+            $table->string('regle_flux');
+            $table->boolean('change_flux');
+            $table->string('categorie_flux');
             $table->string('tcp/udp');
-            $table->string('protocole');
+            $table->foreignId('protocole_id');
             $table->string('action');
-            $table->string('duree');
+            $table->foreignId('durees_id');
             $table->string('description');
             $table->string('justification');
             $table->timestamps();
@@ -45,7 +45,7 @@ class CreateFluxTable extends Migration
     public function down()
     {
         Schema::create('demandes', function (Blueprint $table) {
-            $table->dropForeign(["adresses_sources_id","adresses_destinations_id"]);
+            $table->dropForeign(["adresses_sources_id","adresses_destinations_id","protocole_id","durees_id"]);
         });
         Schema::dropIfExists('flux');
     }

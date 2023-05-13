@@ -19,14 +19,17 @@ class CreateDemandesTable extends Migration
             /*table Flux*/ // 1 demande ==> 1 ou plusieurs flux
             //$table->foreignId('acteurs_demandes_id');
             /*table Acteurs_demandes*/ // 1 demande ==> 1 acteurs
-            $table->foreignId('personnes_id');
+            $table->foreignId('acteurs_demandes_id');
             /*table Acteurs_demandes*/ // 1 demande ==> 4 personnes
-            $table->integer('status');
-            $table->integer('type');
-            $table->integer('archivee');
-            $table->integer('suivi');
-            $table->integer('annulee');
-            $table->dateTime('dateDemande');
+            $table->integer('status'); // validée, refusée ou en cours (analysée ou codée)
+            $table->boolean('type'); // mes demandes ou demandes reçues
+            $table->boolean('archivee');
+            $table->boolean('suivi');
+            $table->boolean('annulee');
+            $table->date('dateDemande');
+            $table->date('validee_at');
+            $table->date('analysee_at');
+            $table->date('codee_at');
             $table->timestamps();
         });
         Schema::enableForeignKeyConstraints();

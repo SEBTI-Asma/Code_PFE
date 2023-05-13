@@ -15,11 +15,11 @@ class CreateActeursDemandesTable extends Migration
     {
         Schema::create('acteurs_demandes', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('valideur_Id'); //Id user //1 acteurs ==> 1 valideur
-            $table->foreignId('analyseur_Id'); //Id user //1 acteurs ==> 1 analyseur
-            $table->foreignId('codeur_Id');   //Id user //1 acteurs ==> 1 codeur
-            $table->foreignId('demandeur_Id'); //Id user //1 acteurs ==> 1 demandeur
-            // $table->timestamps();
+            $table->foreignId('valideur_id'); //Id user //1 acteurs ==> 1 valideur
+            $table->foreignId('analyseur_id'); //Id user //1 acteurs ==> 1 analyseur
+            $table->foreignId('codeur_id');   //Id user //1 acteurs ==> 1 codeur
+            $table->foreignId('demandeur_id'); //Id user //1 acteurs ==> 1 demandeur
+            $table->timestamps();
         });
         Schema::enableForeignKeyConstraints();
     }

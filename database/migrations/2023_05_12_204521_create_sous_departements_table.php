@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAdressesDestinationsTable extends Migration
+class CreateSousDepartementsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateAdressesDestinationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('adresses_destinations', function (Blueprint $table) {
+        Schema::create('sous_departements', function (Blueprint $table) {
             $table->id();
-            $table->string('adresse');
-            // $table->timestamps();
+            $table->string('nomsd');
+            $table->timestamps();
         });
     }
 
@@ -27,6 +27,6 @@ class CreateAdressesDestinationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('adresses_destinations');
+        Schema::dropIfExists('sous_departements');
     }
 }
