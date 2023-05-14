@@ -18,6 +18,7 @@ class CreateDureesTable extends Migration
             $table->integer('mois');
             $table->integer('semaines');
             $table->integer('jours');
+            $table->timestamps();
         });
     }
 

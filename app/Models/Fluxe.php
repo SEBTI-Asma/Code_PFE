@@ -5,13 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Demande extends Model
+class Fluxe extends Model
 {
     use HasFactory;
-
-    public function fluxe(){
-
-        return $this->hasMany(Fluxe::class);
+    public function demande(){
+        
+        return $this->belongsTo(Demande::class, "demande_id", "id");
     }
 }
-

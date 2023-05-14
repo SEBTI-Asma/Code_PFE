@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\AdressesDestination;
+use App\Models\AdresseDestination;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class AdressesDestinationFactory extends Factory
+class AdresseDestinationFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = AdressesDestination::class;
+    protected $model = AdresseDestination::class;
 
     /**
      * Define the model's default state.
@@ -22,7 +22,7 @@ class AdressesDestinationFactory extends Factory
     public function definition()
     {
         return [
-            "adresse" => array_rand(["192.168.1.6","192.168.1.7","192.168.1.8","192.168.1.9"],1),
+            "adresse" => array_rand(["192.168.1.4","192.168.1.5"],1),
         ];
     }
 }

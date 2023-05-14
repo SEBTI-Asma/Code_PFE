@@ -16,6 +16,7 @@ class CreateAdresseDestinationsTable extends Migration
         Schema::create('adresse_destinations', function (Blueprint $table) {
             $table->id();
             $table->string('adresse');
+            $table->timestamps();
         });
     }
 

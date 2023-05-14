@@ -16,6 +16,7 @@ class CreateAdresseSourcesTable extends Migration
         Schema::create('adresse_sources', function (Blueprint $table) {
             $table->id();
             $table->string('adresse');
+            $table->timestamps();
         });
     }
 

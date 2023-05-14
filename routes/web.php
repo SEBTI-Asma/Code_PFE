@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Demande;
+use App\Models\Fluxe;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +18,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/demande', function () {
+    return Demande::with("fluxe")->paginate(5);
+});
+
+Route::get('/flux', function () {
+    return Fluxe::with("demande")->paginate(5);
+});
+

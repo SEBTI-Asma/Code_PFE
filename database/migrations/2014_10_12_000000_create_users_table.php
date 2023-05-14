@@ -19,6 +19,15 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->foreignId('personne_id');//1 user ==> 1 personne
+            $table->string('nom');
+            $table->string('prenom');
+            $table->integer('telephone');
+            $table->foreignId('departement_id');
+            $table->foreignId('sous_departement_id');
+            $table->integer('role')->default(0);
+            $table->integer('droit')->default(0);
+            $table->integer('active')->default(0);
+            $table->string('photo');
             $table->rememberToken();
             $table->timestamps();
         });
@@ -32,6 +41,9 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
+        Schema::create('users', function (Blueprint $table) {
+            $table->dropForeign(["personne_id"]);
+        });
         Schema::dropIfExists('users');
     }
 }

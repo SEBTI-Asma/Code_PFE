@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\AdressesSource;
+use App\Models\SousDepartement;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class AdressesSourceFactory extends Factory
+class SousDepartementFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = AdressesSource::class;
+    protected $model = SousDepartement::class;
 
     /**
      * Define the model's default state.
@@ -22,7 +22,7 @@ class AdressesSourceFactory extends Factory
     public function definition()
     {
         return [
-            "adresse" => array_rand(["192.168.1.2","192.168.1.3","192.168.1.4","192.168.1.5"],1),
+            "nomsd" => $this->faker->text(10),
         ];
     }
 }

@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\Flux;
+use App\Models\Fluxe;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class FluxFactory extends Factory
+class FluxeFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Flux::class;
+    protected $model = Fluxe::class;
 
     /**
      * Define the model's default state.
@@ -22,6 +22,7 @@ class FluxFactory extends Factory
     public function definition()
     {
         return [
+            "demande_id" => rand(1,10),
             "source" => $this->faker->text(10),
             "adresses_sources_id" => rand(1,10),
             "destination" => $this->faker->text(10),

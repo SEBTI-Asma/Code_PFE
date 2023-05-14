@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\ActeursDemande;
+use App\Models\AdresseSource;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class ActeursDemandeFactory extends Factory
+class AdresseSourceFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = ActeursDemande::class;
+    protected $model = AdresseSource::class;
 
     /**
      * Define the model's default state.
@@ -22,10 +22,7 @@ class ActeursDemandeFactory extends Factory
     public function definition()
     {
         return [
-            "valideur_id" => rand(1,10),
-            "analyseur_id" => rand(1,10),
-            "codeur_id" => rand(1,10),
-            "demandeur_id" => rand(1,10),
+            "adresse" => array_rand(["192.168.1.2","192.168.1.3"],1),
         ];
     }
 }

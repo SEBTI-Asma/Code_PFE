@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFluxTable extends Migration
+class CreateFluxesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class CreateFluxTable extends Migration
      */
     public function up()
     {
-        Schema::create('flux', function (Blueprint $table) {
+        Schema::create('fluxes', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('demande_id');
             $table->string('source');
             /*table adresse source */ // 1flux ==> 1 ou plusieurs adresse source
             $table->foreignId('adresses_sources_id');
@@ -44,9 +45,9 @@ class CreateFluxTable extends Migration
      */
     public function down()
     {
-        Schema::create('demandes', function (Blueprint $table) {
+        Schema::create('fluxes', function (Blueprint $table) {
             $table->dropForeign(["adresses_sources_id","adresses_destinations_id","protocole_id","durees_id"]);
         });
-        Schema::dropIfExists('flux');
+        Schema::dropIfExists('fluxes');
     }
 }
