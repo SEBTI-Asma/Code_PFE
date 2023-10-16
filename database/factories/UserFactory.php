@@ -22,21 +22,23 @@ class UserFactory extends Factory
      */
     public function definition()
     {
+        $lastname=$this->faker->lastName;
+        $firstname=$this->faker->firstName();
         return [
             'email' => $this->faker->unique()->safeEmail(),
             'email_verified_at' => now(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'remember_token' => Str::random(10),
-            "personne_id" => rand(1,10),
-            "nom" => $this->faker->lastName,
-            "prenom" => $this->faker->firstName(),
+            "nom" =>$lastname,
+            "prenom" => $firstname,
             "telephone" => rand(3000,4000),
-            "departement_id" => rand(1,10),
-            "sous_departement_id" => rand(1,10),
+            "departement_id" => rand(1,3),
+            "sous_departement_id" => rand(1,3),
             "role" => rand(0,3),
             "droit" => rand(0,1),
-            "active" => rand(0,1),
+            "active" => 0,
             "photo" => $this->faker->imageUrl(),
+            "user_name" => str::lower($lastname)."_".str::lower($firstname),
         ];
     }
 

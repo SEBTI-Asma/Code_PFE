@@ -18,21 +18,25 @@ class CreateFluxesTable extends Migration
             $table->foreignId('demande_id');
             $table->string('source');
             /*table adresse source */ // 1flux ==> 1 ou plusieurs adresse source
-            $table->foreignId('adresses_sources_id');
+            // $table->foreignId('adresse_source_id');
             $table->string('destination');
             /*table adresse destination*/ // 1flux ==> 1 ou plusieurs adresse destination
-            $table->foreignId('adresses_destinations_id');
-            $table->integer('port');
+            // $table->foreignId('adresse_destination_id');
+            $table->string('port');
             $table->string('type_flux'); // permanent temporaire
             $table->string('regle_flux');
             $table->boolean('change_flux');
             $table->string('categorie_flux');
-            $table->string('tcp/udp');
+            $table->integer('tcp_udp');
             $table->foreignId('protocole_id');
-            $table->string('action');
-            $table->foreignId('durees_id');
+            $table->foreignId('departement_id');
+            $table->foreignId('sousdepartement_id');
+            $table->integer('action');
+            $table->foreignId('duree_id');
             $table->string('description');
+            // $table->string('chemin_description');
             $table->string('justification');
+            // $table->string('chemin_justification');
             $table->timestamps();
         });
         Schema::enableForeignKeyConstraints();
@@ -46,7 +50,7 @@ class CreateFluxesTable extends Migration
     public function down()
     {
         Schema::create('fluxes', function (Blueprint $table) {
-            $table->dropForeign(["adresses_sources_id","adresses_destinations_id","protocole_id","durees_id"]);
+            $table->dropForeign(["adresse_source_id","adresse_destination_id","protocole_id","duree_id"]);
         });
         Schema::dropIfExists('fluxes');
     }

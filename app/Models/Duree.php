@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Duree extends Model
 {
     use HasFactory;
+    public function fluxe(){
+        
+        return $this->hasMany(Fluxe::class);
+    }
 }

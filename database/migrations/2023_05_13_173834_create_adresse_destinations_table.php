@@ -15,6 +15,7 @@ class CreateAdresseDestinationsTable extends Migration
     {
         Schema::create('adresse_destinations', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('fluxe_id');
             $table->string('adresse');
             $table->timestamps();
         });
@@ -27,6 +28,9 @@ class CreateAdresseDestinationsTable extends Migration
      */
     public function down()
     {
+        Schema::create('adresse_destinations', function (Blueprint $table) {
+            $table->dropForeign(["fluxe_id"]);
+        });
         Schema::dropIfExists('adresse_destinations');
     }
 }

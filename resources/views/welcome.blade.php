@@ -1,1 +1,1 @@
-@extends("layouts.seconnecter")
+@extends("layouts.acceuil")

@@ -18,9 +18,9 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->foreignId('personne_id');//1 user ==> 1 personne
             $table->string('nom');
             $table->string('prenom');
+            $table->string('user_name');
             $table->integer('telephone');
             $table->foreignId('departement_id');
             $table->foreignId('sous_departement_id');
@@ -42,7 +42,7 @@ class CreateUsersTable extends Migration
     public function down()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->dropForeign(["personne_id"]);
+            $table->dropForeign(["departement_id","sous_departement_id"]);
         });
         Schema::dropIfExists('users');
     }

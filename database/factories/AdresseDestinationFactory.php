@@ -22,6 +22,8 @@ class AdresseDestinationFactory extends Factory
     public function definition()
     {
         return [
+            
+            "fluxe_id" => rand(1,3),
             "adresse" => array_rand(["192.168.1.4","192.168.1.5"],1),
         ];
     }

@@ -12,7 +12,10 @@
         "laravel/framework": "^8.75",
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
-        "livewire/livewire": "^2.12"
+        "laravel/ui": "^3.4",
+        "livewire/livewire": "^2.12",
+        "maatwebsite/excel": "^1.1",
+        "realrashid/sweet-alert": "^7.0"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
@@ -27,7 +30,10 @@
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/"
-        }
+        },
+        "files": [
+            "app/Helpers/helpers.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {

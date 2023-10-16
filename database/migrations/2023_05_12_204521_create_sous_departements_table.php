@@ -15,7 +15,7 @@ class CreateSousDepartementsTable extends Migration
     {
         Schema::create('sous_departements', function (Blueprint $table) {
             $table->id();
-            $table->string('nomsd');
+            $table->string('nomsd')->unique();;
             $table->timestamps();
         });
     }

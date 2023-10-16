@@ -15,7 +15,7 @@ class CreateProtocolesTable extends Migration
     {
         Schema::create('protocoles', function (Blueprint $table) {
             $table->id();
-            $table->string('nomp');
+            $table->string('nomp')->unique();
             $table->timestamps();
         });
     }
